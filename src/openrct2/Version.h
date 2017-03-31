@@ -18,6 +18,7 @@
 
 #include "common.h"
 
+#define TEAMNAME                    "The Developers"
 #define OPENRCT2_NAME               "OpenRCT2"
 #define OPENRCT2_VERSION            "0.0.7"
 

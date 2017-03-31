@@ -15,7 +15,7 @@
 #pragma endregion
 
 #include <SDL_platform.h>
-
+#include <time.h>
 #include "../core/Guard.hpp"
 #include "../OpenRCT2.h"
 
@@ -537,10 +537,25 @@ const char* Network::FormatChat(NetworkPlayer* fromplayer, const char* text)
 	static char formatted[1024];
 	char* lineCh = formatted;
 	formatted[0] = 0;
+	
+	
+	time_t timer;
+	char buffer[26];
+	struct tm* tm_info;
+	
+	time(&timer);
+	tm_info = localtime(&timer);
+	
+	strftime(buffer, 8, "[%H:%M]   ", tm_info);
+	puts(buffer);
+	
 	if (fromplayer) {
 		lineCh = utf8_write_codepoint(lineCh, FORMAT_OUTLINE);
 		lineCh = utf8_write_codepoint(lineCh, FORMAT_BABYBLUE);
-		safe_strcpy(lineCh, (const char *) fromplayer->Name.c_str(), sizeof(formatted) - (lineCh - formatted));
+		std::string time = buffer;
+		
+		time = time + fromplayer->Name.c_str();
+		safe_strcpy(lineCh, (const char *) time.c_str(), sizeof(formatted) - (lineCh - formatted));
 		safe_strcat(lineCh, ": ", sizeof(formatted) - (lineCh - formatted));
 		lineCh = strchr(lineCh, '\0');
 	}

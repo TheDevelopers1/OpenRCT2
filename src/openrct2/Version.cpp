@@ -62,7 +62,7 @@ namespace Version
         {
             utf8 buffer[256];
             size_t bufferSize = sizeof(buffer);
-            String::Set(buffer, bufferSize, OPENRCT2_NAME ", v" OPENRCT2_VERSION);
+			String::Set(buffer, bufferSize,TEAMNAME "," OPENRCT2_NAME", v" OPENRCT2_VERSION);
             if (!String::IsNullOrEmpty(gGitBranch))
             {
                 String::AppendFormat(buffer, bufferSize, "-%s", gGitBranch);

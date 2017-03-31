@@ -546,8 +546,7 @@ const char* Network::FormatChat(NetworkPlayer* fromplayer, const char* text)
 	time(&timer);
 	tm_info = localtime(&timer);
 	
-	strftime(buffer, 8, "[%H:%M]   ", tm_info);
-	puts(buffer);
+	strftime(buffer, 11, "[%H:%M]   ", tm_info);
 	
 	if (fromplayer) {
 		lineCh = utf8_write_codepoint(lineCh, FORMAT_OUTLINE);

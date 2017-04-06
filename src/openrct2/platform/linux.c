@@ -470,7 +470,7 @@ utf8 *platform_open_directory_browser(const utf8 *title) {
 	char result[OPENRCT2_MAX_COMMAND_LENGTH];
 	char *return_value;
 
-	size = OPENRCT2_MAX_COMMAND_LENGTH;
+	size = MAX_PATH;
 	dtype = get_dialog_app(executable, &size);
 
 	switch (dtype) {
@@ -490,6 +490,7 @@ utf8 *platform_open_directory_browser(const utf8 *title) {
 		return NULL;
 	}
 
+	assert(size - 1 < countof(result));
 	result[size-1] = '\0';
 
 	return_value = _strdup(result);

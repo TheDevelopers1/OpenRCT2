@@ -1427,6 +1427,10 @@ void title_handle_keyboard_input()
 		if (key == 255)
 			continue;
 
+		if (key == 41) {
+			platform_toggle_windowed_mode();
+		}
+
 		// Reserve backtick for console
 		if (key == SDL_SCANCODE_GRAVE) {
 			if ((gConfigGeneral.debugging_tools && !platform_is_input_active()) || gConsoleOpen) {
@@ -1497,6 +1501,10 @@ void game_handle_keyboard_input()
 	while (!gOpenRCT2Headless && (key = get_next_key()) != 0) {
 		if (key == 255)
 			continue;
+
+		if (key == 41) {
+			platform_toggle_windowed_mode();
+		}
 
 		// Reserve backtick for console
 		if (key == SDL_SCANCODE_GRAVE) {

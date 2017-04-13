@@ -1429,7 +1429,6 @@ void title_handle_keyboard_input()
 		
 		if (key == 41) {
 			platform_toggle_windowed_mode();
-			platform_toggle_windowed_mode();
 		}
 
 		// Reserve backtick for console
@@ -1504,7 +1503,6 @@ void game_handle_keyboard_input()
 			continue;
 		
 		if (key == 41) {
-			platform_toggle_windowed_mode();
 			platform_toggle_windowed_mode();
 		}
 

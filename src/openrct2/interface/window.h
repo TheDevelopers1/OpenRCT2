@@ -34,10 +34,8 @@ union rct_window_event;
 struct track_design_file_ref;
 struct TitleSequence;
 
-#define TEXT_INPUT_SIZE 1024
-
 extern uint16 TextInputDescriptionArgs[4];
-extern char gTextBoxInput[TEXT_INPUT_SIZE];
+extern char gTextBoxInput[512];
 extern sint32 gMaxTextBoxInputLength;
 extern sint32 gTextBoxFrameNo;
 extern bool gUsingWidgetTextBox;
@@ -474,6 +472,7 @@ enum {
 	WC_CUSTOM_CURRENCY_CONFIG = 129,
 	WC_DEBUG_PAINT = 130,
 	WC_VIEW_CLIPPING = 131,
+	WC_PAUSE = 132,
 
 	// Only used for colour schemes
 	WC_STAFF = 220,
@@ -636,6 +635,7 @@ void window_top_toolbar_open();
 void window_game_bottom_toolbar_open();
 void window_game_bottom_toolbar_invalidate_news_item();
 void window_about_open();
+void window_pause_open();
 void window_footpath_open();
 void window_save_prompt_open();
 void window_title_menu_open();

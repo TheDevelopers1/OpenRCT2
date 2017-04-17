@@ -3695,14 +3695,9 @@ enum {
 	STR_PATH_TO_RCT1_TIP = 6038,
 
 	STR_QUICK_DEMOLISH_RIDE = 6039,
-
 	STR_ACTION_EDIT_SCENARIO_OPTIONS = 6040,
-<<<<<<< HEAD
 	STR_PAUSE = 6099,
-=======
-	
 	STR_NO_MECHANICS_ARE_HIRED_MESSAGE = 6041,
->>>>>>> OpenRCT2/develop
 
 	// Have to include resource strings (from scenarios and objects) for the time being now that language is partially working
 	STR_COUNT = 32768

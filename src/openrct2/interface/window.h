@@ -34,10 +34,8 @@ union rct_window_event;
 struct track_design_file_ref;
 struct TitleSequence;
 
-#define TEXT_INPUT_SIZE 1024
-
 extern uint16 TextInputDescriptionArgs[4];
-extern char gTextBoxInput[TEXT_INPUT_SIZE];
+extern char gTextBoxInput[512];
 extern sint32 gMaxTextBoxInputLength;
 extern sint32 gTextBoxFrameNo;
 extern bool gUsingWidgetTextBox;

@@ -1090,7 +1090,7 @@ static void widget_text_box_draw(rct_drawpixelinfo *dpi, rct_window *w, sint32 w
 	}
 
 
-	safe_strcpy(wrapped_string, gTextBoxInput, 512);
+	safe_strcpy(wrapped_string, gTextBoxInput, 1024);
 
 	// String length needs to add 12 either side of box
 	// +13 for cursor when max length.

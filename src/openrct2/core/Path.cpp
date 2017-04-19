@@ -105,12 +105,7 @@ namespace Path
         std::string result = String::ToStd(cstr);
         Memory::Free(cstr);
         
-        //correct mispelled track file named "Goliath.1.TD6"
-        if (result.compare("Goliath.1") == 0) {
-            return "Goliath";
-        } else {
-            return result;
-        }
+        return result;
     }
 
     utf8 * GetFileNameWithoutExtension(const utf8 * path)

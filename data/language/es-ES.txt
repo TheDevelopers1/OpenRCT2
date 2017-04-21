@@ -4298,6 +4298,17 @@ STR_6026    :Construir Atrac. - Pieza Anterior
 STR_6027    :Construir Atrac. - Pieza Siguiente
 STR_6028    :Construir Atrac. - Construir Actual
 STR_6029    :Construir Atrac. - Demoler Actual
+STR_6030    :{SMALLFONT}{BLACK}Selector de Escenario. Haz clic en cualquier escenario del mapa para construirlo.
+STR_6031    :Descripción Servidor:
+STR_6032    :Msg. de Bienvenida:
+STR_6033    :Ruta de Instalación RCT1:
+STR_6035    :Por favor selecciona la carpeta de RCT1
+STR_6036    :{SMALLFONT}{BLACK}Borrar
+STR_6037    :Por favor selecciona una carpeta válida con una instalación de RCT1
+STR_6038    :{SMALLFONT}{BLACK}Si tienes una instalación de RCT1, establece esta opción hacia la carpeta de la instalación para cargar los escenarios, música, etc.
+STR_6039    :{SMALLFONT}{BLACK}Demoler atracción rápidamente
+STR_6040    :Editar Opciones de Escenario
+STR_6041    :{BLACK}¡No hay mecánicos contratados!
 
 ##############
 # Escenarios #

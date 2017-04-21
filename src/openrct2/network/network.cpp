@@ -537,7 +537,7 @@ const char* Network::FormatChat(NetworkPlayer* fromplayer, const char* text)
 	static char formatted[1024];
 	char* lineCh = formatted;
 	formatted[0] = 0;
-	
+
 	time_t timer;
 	char buffer[26];
 	struct tm* tm_info;

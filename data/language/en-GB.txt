@@ -553,7 +553,7 @@ STR_0548    :A toilet building
 STR_0549    :Rotating big wheel with open chairs
 STR_0550    :Riders view a film inside the motion simulator pod while it is twisted and moved around by a hydraulic arm
 STR_0551    :Cinema showing 3D films inside a geodesic sphere shaped building
-STR_0552    :Passengers ride in a gondola suspended by large rotating arms, rotating forwards and backwards head-over-heals
+STR_0552    :Passengers ride in a gondola suspended by large rotating arms, rotating forwards and backwards head-over-heels
 STR_0553    :Concentric pivoting rings allowing the riders free rotation in all directions
 STR_0554    :The car is accelerated out of the station along a long level track using Linear Induction Motors, then heads straight up a vertical spike of track, freefalling back down to return to the station
 STR_0555    :Guests ride in a lift up or down a vertical tower to get from one level to another
@@ -2691,14 +2691,14 @@ STR_2682    :<removed string - do not use>
 STR_2683    :<removed string - do not use>
 STR_2684    :{SMALLFONT}{BLACK}Large group of guests arrive
 STR_2685    :Simplex Noise Parameters
-STR_2686    :{WINDOW_COLOUR_2}Low:
-STR_2687    :{WINDOW_COLOUR_2}High:
-STR_2688    :{WINDOW_COLOUR_2}Base Frequency:
-STR_2689    :{WINDOW_COLOUR_2}Octaves:
+STR_2686    :Low:
+STR_2687    :High:
+STR_2688    :Base Frequency:
+STR_2689    :Octaves:
 STR_2690    :Map Generation
-STR_2691    :{WINDOW_COLOUR_2}Base height:
-STR_2692    :{WINDOW_COLOUR_2}Water level:
-STR_2693    :{WINDOW_COLOUR_2}Terrain:
+STR_2691    :Base height:
+STR_2692    :Water level:
+STR_2693    :Terrain:
 STR_2694    :Generate
 STR_2695    :Random terrain
 STR_2696    :Place trees
@@ -2748,7 +2748,7 @@ STR_2739    :None
 STR_2740    :RollerCoaster Tycoon 1
 STR_2741    :RollerCoaster Tycoon 2
 STR_2742    :css50.dat not found
-STR_2743    :Copy data\css17.dat from your RCT1 installation to data\css50.dat in your RCT2 installation, or make sure the path to RCT1 in the Miscellaneous tab is correct.
+STR_2743    :Copy 'data/css17.dat' from your RCT1 installation to 'data/css50.dat' in your RCT2 installation, or make sure the path to RCT1 in the Miscellaneous tab is correct.
 STR_2744    :[
 STR_2745    :\
 STR_2746    :]
@@ -3218,7 +3218,7 @@ STR_3207    :Roller Coaster Designer
 STR_3208    :Track Designs Manager
 STR_3209    :Back to Previous Step:
 STR_3210    :Forward to Next Step:
-STR_3211    :{WINDOW_COLOUR_2}Map size:
+STR_3211    :Map size:
 STR_3212    :{POP16}{COMMA16} x {PUSH16}{COMMA16}
 STR_3213    :Can't decrease map size any further
 STR_3214    :Can't increase map size any further
@@ -4353,6 +4353,22 @@ STR_6040    :Edit Scenario Options
 STR_6099    :{BLACK}Game is Paused
 =======
 STR_6041    :{BLACK}No mechanics are hired!
+<<<<<<< HEAD
+>>>>>>> OpenRCT2/develop
+=======
+STR_6042    :Load height map
+STR_6043    :Select height map
+STR_6044    :Smooth height map
+STR_6045    :Strength
+STR_6046    :Normalise height map
+STR_6047    :Smooth tiles
+STR_6048    :Height map error
+STR_6049    :Error reading PNG
+STR_6050    :Error reading bitmap
+STR_6051    :The width and height need to match
+STR_6052    :The heightmap is too big, and will be cut off
+STR_6053    :The heightmap cannot be normalised
+STR_6054    :Only 24-bit bitmaps are supported
 >>>>>>> OpenRCT2/develop
 
 #############

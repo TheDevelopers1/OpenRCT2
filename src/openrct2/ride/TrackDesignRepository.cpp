@@ -346,10 +346,17 @@ private:
 public:
     static std::string GetNameFromTrackPath(const std::string &path)
     {
+<<<<<<< HEAD
 		std::string name = Path::GetFileNameWithoutExtension(path);
 		//The track name should be the file name until the first instance of a dot
 		name = name.substr(0, name.find_first_of("."));
 		return name;
+=======
+        std::string name = Path::GetFileNameWithoutExtension(path);
+        //The track name should be the file name until the first instance of a dot
+        name = name.substr(0, name.find_first_of("."));
+        return name;
+>>>>>>> OpenRCT2/develop
     }
 };
 

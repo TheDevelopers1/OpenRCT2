@@ -1,4 +1,4 @@
-#pragma region Copyright (c) 2014-2016 OpenRCT2 Developers
+#pragma region Copyright (c) 2014-2017 OpenRCT2 Developers
 /*****************************************************************************
  * OpenRCT2, an open source clone of Roller Coaster Tycoon 2.
  *
@@ -866,7 +866,7 @@ static void window_map_paint(rct_window *w, rct_drawpixelinfo *dpi)
 			}
 		}
 	} else if (!widget_is_active_tool(w, WIDX_SET_LAND_RIGHTS)) {
-		gfx_draw_string_left(dpi, STR_MAP_SIZE, NULL, COLOUR_BLACK, w->x + 4, w->y + w->widgets[WIDX_MAP_SIZE_SPINNER].top + 1);
+		gfx_draw_string_left(dpi, STR_MAP_SIZE, NULL, w->colours[1], w->x + 4, w->y + w->widgets[WIDX_MAP_SIZE_SPINNER].top + 1);
 	}
 }
 
@@ -1236,7 +1236,7 @@ static void sub_666EEF(sint32 x, sint32 y, sint16 *mapX, sint16 *mapY, sint16 *m
 static void window_map_place_park_entrance_tool_update(sint32 x, sint32 y)
 {
 	sint16 mapX, mapY, mapZ = 0;
-	sint32 direction, sideDirection;
+	sint32 direction = 0, sideDirection;
 
 	map_invalidate_selection_rect();
 	map_invalidate_map_selection_tiles();
@@ -1270,7 +1270,7 @@ static void window_map_place_park_entrance_tool_update(sint32 x, sint32 y)
 	}
 
 	park_entrance_remove_ghost();
-	gParkEntranceGhostPrice = park_entrance_place_ghost(mapX, mapY, mapZ, direction);
+	park_entrance_place_ghost(mapX, mapY, mapZ, direction);
 }
 
 /**

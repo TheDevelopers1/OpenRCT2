@@ -482,7 +482,7 @@ private:
 
                         // Check if there are spare entries available
                         size_t maxEntries = (size_t)object_entry_group_counts[objectType];
-                        if (entries->GetCount() < maxEntries)
+                        if (entries != nullptr && entries->GetCount() < maxEntries)
                         {
                             entries->GetOrAddEntry(objectName);
                         }
@@ -640,7 +640,7 @@ private:
     {
         memset(dst, 0, sizeof(rct_ride));
 
-        // This is a pecularity of this exact version number, which only Heide-Park seems to use.
+        // This is a peculiarity of this exact version number, which only Heide-Park seems to use.
         if (_s4.game_version == 110018 && src->type == RCT1_RIDE_TYPE_INVERTED_ROLLER_COASTER)
         {
             dst->type = RIDE_TYPE_COMPACT_INVERTED_COASTER;

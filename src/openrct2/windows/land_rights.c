@@ -51,8 +51,6 @@ static rct_widget window_land_rights_widgets[] = {
 	{ WIDGETS_END },
 };
 
-static sint32 window_land_rights_should_close();
-
 static void window_land_rights_close(rct_window *w);
 static void window_land_rights_mouseup(rct_window *w, sint32 widgetIndex);
 static void window_land_rights_update(rct_window *w);
@@ -119,7 +117,7 @@ void window_land_rights_open()
 static void window_land_rights_close(rct_window *w)
 {
 	// If the tool wasn't changed, turn tool off
-	if (!window_land_rights_should_close())
+	if (land_rights_tool_is_active())
 		tool_cancel();
 }
 
@@ -192,7 +190,7 @@ static void window_land_rights_inputsize(rct_window *w)
 static void window_land_rights_update(rct_window *w)
 {
 	// Close window if another tool is open
-	if (window_land_rights_should_close())
+	if (!land_rights_tool_is_active())
 		window_close(w);
 }
 
@@ -210,7 +208,7 @@ static void window_land_rights_invalidate(rct_window *w)
 		SPR_LAND_TOOL_SIZE_0 + gLandToolSize :
 		0xFFFFFFFF;
 
-	// Disable ownership and/or construction buying functions if there're no tiles left for sale
+	// Disable ownership and/or construction buying functions if there are no tiles left for sale
 	if (gLandRemainingOwnershipSales == 0) {
 		w->disabled_widgets |= (1 << WIDX_BUY_LAND_RIGHTS);
 		window_land_rights_widgets[WIDX_BUY_LAND_RIGHTS].tooltip = STR_NO_LAND_RIGHTS_FOR_SALE_TIP;
@@ -249,15 +247,4 @@ static void window_land_rights_paint(rct_window *w, rct_drawpixelinfo *dpi)
 	) {
 		gfx_draw_string_centred(dpi, STR_COST_AMOUNT, x, y, COLOUR_BLACK, &gLandRightsCost);
 	}
-}
-
-static sint32 window_land_rights_should_close()
-{
-	if (!(input_test_flag(INPUT_FLAG_TOOL_ACTIVE)))
-		return 1;
-	if (gCurrentToolWidget.window_classification != WC_PARK_INFORMATION)
-		return 1;
-	if (gCurrentToolWidget.widget_index != 14)
-		return 1;
-	return 0;
 }

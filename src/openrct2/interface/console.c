@@ -33,6 +33,7 @@
 #include "../peep/staff.h"
 #include "../platform/platform.h"
 #include "../rct2.h"
+#include "../ride/ride.h"
 #include "../util/sawyercoding.h"
 #include "../util/util.h"
 #include "../Version.h"
@@ -454,19 +455,31 @@ static sint32 cc_rides(const utf8 **argv, sint32 argc)
 			FOR_ALL_RIDES(i, ride) {
 				char name[128];
 				format_string(name, 128, ride->name, &ride->name_arguments);
-				console_printf("rides %03d type: %02u subtype %03u name %s", i, ride->type, ride->subtype, name);
+				console_printf("ride: %03d type: %02u subtype %03u operating mode: %02u name: %s", i, ride->type, ride->subtype, ride->mode, name);
 			}
 		} else if (strcmp(argv[0], "set") == 0) {
 			if (argc < 4) {
-				console_printf("rides set type <ride id> <ride type>");
-				console_printf("rides set friction <ride id> <friction value>");
-				console_printf("rides set excitement <ride id> <excitement value>");
-				console_printf("rides set intensity <ride id> <excitement value>");
-				console_printf("rides set nausea <ride id> <excitement value>");
+				if (argc > 1 && strcmp(argv[1], "mode") == 0){
+					console_printf("Ride modes are specified using integer IDs as given below:");
+					for (sint32 i = 0; i < RIDE_MODE_COUNT; i++) {
+						char mode_name[128] = { 0 };
+						rct_string_id mode_string_id = STR_RIDE_MODE_NORMAL + i;
+						format_string(mode_name, 128, mode_string_id, 0);
+						console_printf("%02d - %s", i, mode_name);
+					}
+					
+				} else {
+					console_printf("rides set type <ride id> <ride type>");
+					console_printf("rides set mode [<ride id> <operating mode>]");
+					console_printf("rides set friction <ride id> <friction value>");
+					console_printf("rides set excitement <ride id> <excitement value>");
+					console_printf("rides set intensity <ride id> <intensity value>");
+					console_printf("rides set nausea <ride id> <nausea value>");
+				}
 				return 0;
 			}
 			if (strcmp(argv[1], "type") == 0) {
-				bool int_valid[3] = { 0 };
+				bool int_valid[2] = { 0 };
 				sint32 ride_index = console_parse_int(argv[2], &int_valid[0]);
 				sint32 type = console_parse_int(argv[3], &int_valid[1]);
 				if (!int_valid[0] || !int_valid[1]) {
@@ -478,6 +491,28 @@ static sint32 cc_rides(const utf8 **argv, sint32 argc)
 					sint32 res = game_do_command(0, (type << 8) | 1, 0, (RIDE_SETTING_RIDE_TYPE << 8) | ride_index, GAME_COMMAND_SET_RIDE_SETTING, 0, 0);
 					if (res == MONEY32_UNDEFINED) {
 						console_printf("That didn't work");
+					}
+				}
+			}
+			else if (strcmp(argv[1], "mode") == 0) {
+				bool int_valid[2] = { 0 };
+				sint32 ride_index = console_parse_int(argv[2], &int_valid[0]);
+				sint32 mode = console_parse_int(argv[3], &int_valid[1]);
+				if (!int_valid[0] || !int_valid[1]) {
+					console_printf("This command expects integer arguments");
+				} else if (ride_index < 0) {
+					console_printf("Ride index must not be negative");
+				} else {
+					rct_ride *ride = get_ride(ride_index);
+					if (mode <= 0 || mode > (RIDE_MODE_COUNT - 1)) {
+						console_printf("Invalid ride mode.");
+					}
+					else if (ride == NULL || ride->type == RIDE_TYPE_NULL) {
+						console_printf("No ride found with index %d", ride_index);
+					}
+					else {
+						ride->mode = mode;
+						invalidate_test_results(ride_index);
 					}
 				}
 			}
@@ -1043,7 +1078,7 @@ static sint32 cc_set(const utf8 **argv, sint32 argc)
 static sint32 cc_twitch(const utf8 **argv, sint32 argc)
 {
 #ifdef DISABLE_TWITCH
-	console_writeline_error("OpenRCT2 build not compiled with Twitch integeration.");
+	console_writeline_error("OpenRCT2 build not compiled with Twitch integration.");
 #else
 	// TODO add some twitch commands
 #endif

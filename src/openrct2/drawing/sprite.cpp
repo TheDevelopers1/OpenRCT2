@@ -34,8 +34,8 @@ extern "C"
 extern "C"
 {
     static void *   _g1Buffer = nullptr;
-    static rct_gx   _g2;
-    static rct_gx   _csg;
+    static rct_gx   _g2 = { 0 };
+    static rct_gx   _csg = { 0 };
     static bool     _csgLoaded = false;
 
     #ifdef NO_RCT2
@@ -270,7 +270,7 @@ extern "C"
      * image.
      *  rct2: 0x0067A690
      */
-    static void FASTCALL gfx_bmp_sprite_to_buffer(uint8* palette_pointer, uint8* unknown_pointer, uint8* source_pointer, uint8* dest_pointer, rct_g1_element* source_image, rct_drawpixelinfo *dest_dpi, sint32 height, sint32 width, sint32 image_type)
+    void FASTCALL gfx_bmp_sprite_to_buffer(uint8* palette_pointer, uint8* unknown_pointer, uint8* source_pointer, uint8* dest_pointer, rct_g1_element* source_image, rct_drawpixelinfo *dest_dpi, sint32 height, sint32 width, sint32 image_type)
     {
         uint16 zoom_level = dest_dpi->zoom_level;
         uint8 zoom_amount = 1 << zoom_level;
@@ -641,10 +641,20 @@ extern "C"
         }
         if (image_id < SPR_CSG_BEGIN)
         {
-            return &_g2.elements[image_id - SPR_G2_BEGIN];
+            const uint32 idx = image_id - SPR_G2_BEGIN;
+            openrct2_assert(idx < _g2.header.num_entries,
+                            "Invalid entry in g2.dat requested, idx = %u. You may have to update your g2.dat.", idx);
+            return &_g2.elements[idx];
         }
 
-        return &_csg.elements[image_id - SPR_CSG_BEGIN];
+        if (is_csg_loaded())
+        {
+            const uint32 idx = image_id - SPR_CSG_BEGIN;
+            openrct2_assert(idx < _csg.header.num_entries,
+                            "Invalid entry in csg.dat requested, idx = %u.", idx);
+            return &_csg.elements[idx];
+        }
+        return nullptr;
     }
 
     bool is_csg_loaded()

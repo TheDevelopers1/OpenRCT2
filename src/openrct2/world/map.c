@@ -2760,6 +2760,10 @@ void game_command_place_scenery(sint32* eax, sint32* ebx, sint32* ecx, sint32* e
 	}
 
 	rct_scenery_entry* scenery_entry = get_small_scenery_entry(scenery_type);
+	if (scenery_entry == NULL) {
+		*ebx = MONEY32_UNDEFINED;
+		return;
+	}
 
 	if(scenery_entry->small_scenery.flags & SMALL_SCENERY_FLAG_FULL_TILE || !(scenery_entry->small_scenery.flags & SMALL_SCENERY_FLAG9)){
 		if(scenery_entry->small_scenery.flags & (SMALL_SCENERY_FLAG9 | SMALL_SCENERY_FLAG24 | SMALL_SCENERY_FLAG25)){
@@ -3925,7 +3929,7 @@ static void clear_element_at(sint32 x, sint32 y, rct_map_element **elementPtr)
 		element->properties.surface.terrain = 0;
 		element->properties.surface.grass_length = 1;
 		element->properties.surface.ownership = 0;
-		// Because this element is not completely removed, the pointer must be updated muanually
+		// Because this element is not completely removed, the pointer must be updated manually
 		// The rest of the elements are removed from the array, so the pointer doesn't need to be updated.
 		(*elementPtr)++;
 		break;
@@ -4424,6 +4428,11 @@ void game_command_set_sign_name(sint32* eax, sint32* ebx, sint32* ecx, sint32* e
 
 void game_command_set_sign_style(sint32* eax, sint32* ebx, sint32* ecx, sint32* edx, sint32* esi, sint32* edi, sint32* ebp) {
 	uint8 bannerId = *ecx & 0xFF;
+	if (bannerId > countof(gBanners)) {
+		log_warning("Invalid game command for setting sign style, banner id = %d", bannerId);
+		*ebx = MONEY32_UNDEFINED;
+		return;
+	}
 	rct_banner *banner = &gBanners[bannerId];
 	sint32 x = banner->x << 5;
 	sint32 y = banner->y << 5;

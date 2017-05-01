@@ -506,6 +506,7 @@ enum {
 	LOADSAVETYPE_LANDSCAPE = 1 << 1,
 	LOADSAVETYPE_SCENARIO = 2 << 1,
 	LOADSAVETYPE_TRACK = 3 << 1,
+	LOADSAVETYPE_IMAGE = 4 << 1,
 };
 
 enum {
@@ -791,6 +792,10 @@ void window_update_textbox();
 bool window_is_visible(rct_window* w);
 
 bool land_tool_is_active();
+bool water_tool_is_active();
+bool clear_scenery_tool_is_active();
+bool land_rights_tool_is_active();
+bool scenery_tool_is_active();
 
 //Cheat: in-game land ownership editor
 void toggle_ingame_land_ownership_editor();

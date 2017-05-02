@@ -104,6 +104,7 @@ namespace Path
         utf8 * cstr = GetFileNameWithoutExtension(path.c_str());
         std::string result = String::ToStd(cstr);
         Memory::Free(cstr);
+        
         return result;
     }
 

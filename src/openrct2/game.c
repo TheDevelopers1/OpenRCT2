@@ -613,8 +613,10 @@ void pause_toggle()
 	if (gGamePaused & GAME_PAUSED_NORMAL) {
 		audio_pause_sounds();
 		audio_unpause_sounds();
+		window_pause_open();
 	} else {
 		audio_unpause_sounds();
+		window_close_all();
 	}
 }
 

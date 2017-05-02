@@ -15,6 +15,7 @@
 		008BF72B1CDAA5C30019A2AD /* track_design_save.c in Sources */ = {isa = PBXBuildFile; fileRef = 008BF7271CDAA5C30019A2AD /* track_design_save.c */; };
 		008BF72C1CDAA5C30019A2AD /* track_design.c in Sources */ = {isa = PBXBuildFile; fileRef = 008BF7281CDAA5C30019A2AD /* track_design.c */; };
 		00EFEE721CF1D80B0035213B /* NetworkKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00EFEE701CF1D80B0035213B /* NetworkKey.cpp */; };
+		02BFBF461EA3FF4F001B1554 /* pause.c in Sources */ = {isa = PBXBuildFile; fileRef = 02BFBF451EA3FF4F001B1554 /* pause.c */; };
 		652076321E22EFE7000D0C04 /* Imaging.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 652076301E22EFE7000D0C04 /* Imaging.cpp */; };
 		652747EC1E41CE1B000F36FD /* SawyerEncoding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 652747EA1E41CE1B000F36FD /* SawyerEncoding.cpp */; };
 		656F6C8E1E45BFC200E0F770 /* Version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 656F6C8C1E45BFC200E0F770 /* Version.cpp */; };
@@ -533,6 +534,7 @@
 		008BF7291CDAA5C30019A2AD /* track_design.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = track_design.h; sourceTree = "<group>"; };
 		00EFEE701CF1D80B0035213B /* NetworkKey.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkKey.cpp; sourceTree = "<group>"; usesTabs = 0; };
 		00EFEE711CF1D80B0035213B /* NetworkKey.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = NetworkKey.h; sourceTree = "<group>"; usesTabs = 0; };
+		02BFBF451EA3FF4F001B1554 /* pause.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pause.c; sourceTree = "<group>"; };
 		242F470FE91956ACA4078F6A /* Climate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Climate.cpp; sourceTree = "<group>"; };
 		437490DBD74ECF60C3363559 /* Balloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Balloon.cpp; sourceTree = "<group>"; };
 		652076301E22EFE7000D0C04 /* Imaging.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Imaging.cpp; sourceTree = "<group>"; };
@@ -1959,6 +1961,7 @@
 			isa = PBXGroup;
 			children = (
 				D442718F1CC81B3200D84D28 /* about.c */,
+				02BFBF451EA3FF4F001B1554 /* pause.c */,
 				D44271901CC81B3200D84D28 /* banner.c */,
 				D44271911CC81B3200D84D28 /* changelog.c */,
 				D44271921CC81B3200D84D28 /* cheats.c */,
@@ -2774,6 +2777,7 @@
 				C6E96E1B1E0406F00076A04F /* hook.c in Sources */,
 				D44272A51CC81B3200D84D28 /* particle.c in Sources */,
 				D44272811CC81B3200D84D28 /* server_start.c in Sources */,
+				02BFBF461EA3FF4F001B1554 /* pause.c in Sources */,
 				D44272611CC81B3200D84D28 /* finances.c in Sources */,
 				C6575A371D46AFBA00C3E79F /* debug_paint.c in Sources */,
 				D442722D1CC81B3200D84D28 /* utf8.c in Sources */,
